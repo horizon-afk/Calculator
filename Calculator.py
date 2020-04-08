@@ -10,6 +10,7 @@ val = ""
 A = 0
 operator = ""
 
+#Functions performed by the buttons 
 def btn_1isclicked():
     global val
     val = val + "1"
@@ -66,7 +67,7 @@ def btn_plus_clicked():
     global val
     A = int(val)
     operator = "+"
-    val = val + " + "
+    val = val + "+"
     data.set(val)
 
 def btn_minus_clicked():
@@ -75,7 +76,7 @@ def btn_minus_clicked():
     global val
     A = int(val)
     operator = "-"
-    val = val + " - "
+    val = val + "-"
     data.set(val)
     
 def btn_mul_clicked():
@@ -84,7 +85,7 @@ def btn_mul_clicked():
     global val
     A = int(val)
     operator = "*"
-    val = val + " * "
+    val = val + "*"
     data.set(val)    
 
 def btn_div_clicked():
@@ -93,9 +94,17 @@ def btn_div_clicked():
     global val
     A = int(val)
     operator = "/"
-    val = val + " / "
+    val = val + "/"
     data.set(val)
     
+def c_pressed():
+    global A,operator,val
+    val = ""
+    A = 0
+    operator = ""
+    data.set(val)
+    
+#Function performed by equal button
 def result():
     global A
     global operator
@@ -127,9 +136,9 @@ def result():
             val = str(C)
             data.set(val)
                                        
-
 data = StringVar()
 
+#The label to show the output
 lbl = Label(
     root,
     text = "",
@@ -139,16 +148,9 @@ lbl = Label(
     fg = "#000000",
     anchor = SE
 )
-def c_pressed():
-    global A,operator,val
-    val = ""
-    A = 0
-    operator = ""
-    data.set(val)
-
-
 lbl.pack(expand = True,fill = "both")
 
+#Layout of the buttons
 btn1row = Frame(root)
 btn1row.pack(expand = True,fill = "both")
 
@@ -232,7 +234,6 @@ btn_minus = Button(
     command = btn_minus_clicked
 )
 btn_minus.pack(side= LEFT, expand = True,fill ="both")
-
 
 btn7 = Button(
      btn3row,
